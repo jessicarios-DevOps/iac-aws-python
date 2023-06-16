@@ -16,9 +16,21 @@
         - djangorestframework
   - name: Iniciando o projeto para ativar o venv      
     shell: '. /home/ubuntu/projeto/venv/bin/activate; django-admin startproject setup /home/ubuntu/projeto'
-    
-    # o . no início do comando é para executar o comando no shell. 
-    # o ; é para o segundo comando ser executado no mesmo shell. Caso fosse acrescentado outra linha de shell
-    # nesse playbook, seria fechado o shell do primeiro comando e seria aberto outro shell executando o segundo comando, logo daria erro na execução.
-    # setup é o nome do projeto.
-    # no path /home/ubuntu/projeto o dir projeto é onde ficará armazenado o venv e a pasta setup.
+  - name: Alterando o hosts do settings
+    lineinfile: 
+      path: /home/ubuntu/projeto/setup/settings.py
+      regexp: 'ALLOWED_HOSTS'
+      line: 'ALLOWED_HOSTS = ["*"]'
+      backrefs: yes
+
+# update_cache é usado para atualizar primeiro e depois fazer instalação.
+# o . no início do comando é para executar o comando no shell. 
+# o ; é para o segundo comando ser executado no mesmo shell. Caso fosse acrescentado outra linha de shell
+# nesse playbook, seria fechado o shell do primeiro comando e seria aberto outro shell executando o segundo comando, logo daria erro na execução.
+# setup é o nome do projeto.
+# no path /home/ubuntu/projeto o dir projeto é onde ficará armazenado o venv e a pasta setup.
+# lineinfile é o parâmetro utilizado para realizar alteração na linha de um arquivo
+# regexp é a expressão regular. No caso do projeto a alteração é para ser realizada na linha que tem a palavra 'ALLOWED_HOSTS'
+# o parâmetro line é onde foi acrescentado a alteração que deverá ser realizada.
+# ["*"] foi utilizado aspas duplas para ficar diferente se não daria conflito.
+# backrefs parâmetro utilizado para não fazer nenhuma alteração no arquivo caso ele não encontre o ALLOWED_HOSTS.
