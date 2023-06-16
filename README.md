@@ -1,5 +1,5 @@
 ## RESUMO DO PROJETO
-Projeto de Infraestrutura como código, com o objetivo de provisionar com Terraform e realizar configurações e instalações de pacotes usando Ansible. A AWS foi utilizada como provedor.
+Projeto de Infraestrutura como código, com o objetivo de provisionar com Terraform e realizar configurações e instalações de pacotes usando Ansible. A AWS foi utilizada como provedor. 
 ##
 
 ## O que você encontrará aqui
@@ -8,6 +8,12 @@ Projeto de Infraestrutura como código, com o objetivo de provisionar com Terraf
 - Arquivo de hosts do ansible. 
 - Arquivo .gitignore
 ##
+
+## Utilidades do projeto 
+- Criar máquinas virtuais na aws EC2 Elastic Compute Cloud
+- Executar uma API em Django de forma automática.
+
+ 
 
 
 
