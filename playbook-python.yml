@@ -14,3 +14,11 @@
       name:
         - django
         - djangorestframework
+  - name: Iniciando o projeto para ativar o venv      
+    shell: '. /home/ubuntu/projeto/venv/bin/activate; django-admin startproject setup /home/ubuntu/projeto'
+    
+    # o . no início do comando é para executar o comando no shell. 
+    # o ; é para o segundo comando ser executado no mesmo shell. Caso fosse acrescentado outra linha de shell
+    # nesse playbook, seria fechado o shell do primeiro comando e seria aberto outro shell executando o segundo comando, logo daria erro na execução.
+    # setup é o nome do projeto.
+    # no path /home/ubuntu/projeto o dir projeto é onde ficará armazenado o venv e a pasta setup.

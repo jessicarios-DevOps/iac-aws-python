@@ -1,0 +1,30 @@
+1- Comando para ativar o venv:
+.venv/bin/activate
+
+2- Comando para ver se as bibliotecas do django e djangorestframework foram instaladas:
+pip freeze
+
+3- Iniciar o projeto em python utilizando o django com o venv ativado:
+django-admin startproject setup .
+
+4- Executar o manage.py com python para subir o servidor:
+python manage.py runserver 0.0.0.0:8000 
+
+OBS: Quando o comando é executado apenas com runserver na máquina local, ele é redirecinado
+para a porta 8000, que é a porta padrão do django.Porém como a máquina está na aws é necessá-
+rio passar um ip que vai abrir o servidor para a internet pública, por isso o 0.0.0.0:8000, 
+que abre para qualquer requisição.
+
+5-Configurar o arquivo settings.py 
+em ALLOWED_HOSTS colocar ['*'] 
+'*' significa que qualquer requisição, solicitação que chegar é permitido o acesso a esse host.
+
+6-Acessar novamente o servidor com o comando para abrir a página do django.
+python manage.py runserver 0.0.0.0:8000 
+
+Comando para desativar o venv:
+deactivate
+
+
+
+
